@@ -14,7 +14,9 @@ import static io.spring.image.demo.infra.repository.specs.GenericSpecs.*;
 import static io.spring.image.demo.infra.repository.specs.ImageSpecs.*;
 import static org.springframework.data.jpa.domain.Specification.*;
 
-public interface ImageRepository extends JpaRepository<Image, String>, JpaSpecificationExecutor<Image> {
+public interface
+
+ImageRepository extends JpaRepository<Image, String>, JpaSpecificationExecutor<Image> {
 
     /**
      *

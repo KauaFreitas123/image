@@ -7,7 +7,9 @@
     import java.util.List;
     import java.util.Optional;
 
-    public interface ImageService {
+    public interface
+
+    ImageService {
     //salva imagem
     Image save(Image image);
     //retorna imagem

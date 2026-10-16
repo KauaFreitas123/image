@@ -4,9 +4,11 @@ import { Template, ImageCard } from '@/components';
 import { useImageService } from '@/resource/service';
 import { Image } from '@/resource/service';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { Button } from '@/components';
 
 export default function Galeria() {
-
+  const router = useRouter();
   const useService = useImageService()
   const [images, setImages] = useState<Image[]>([])
   const [query, setQuery] = useState<string>('')
@@ -92,23 +94,24 @@ export default function Galeria() {
                 <div className="flex items-center justify-center">
                   <div className="h-5 w-5 animate-spin rounded-full border-2 border-slate-300 border-t-cyan-500" />
                 </div>
-              ) : (
+              ) : (  
                 'Search'
               )}
             </button>
+ 
+    {/* Add New */}
+  <Button
+  type="button"
+  onClick={() => router.push('/upload')}
+  className="h-12 min-w-[100px] shrink-0 rounded-xl border-2 border-cyan-400 bg-white px-6 font-extrabold !text-black shadow-[0_0_18px_rgba(34,211,238,0.45)] transition-all duration-200 hover:bg-cyan-50 hover:shadow-[0_0_25px_rgba(34,211,238,0.6)] active:scale-95"
+>
+  + Add New
+</Button>
 
-            {/* Add New */}
-            <button
-              className="h-12 min-w-[110px] rounded-xl border border-cyan-400/40 bg-cyan-400/10 px-6 font-bold text-cyan-300 transition-all duration-200 hover:border-cyan-400 hover:bg-cyan-400/20 hover:text-cyan-200 active:scale-95"
-            >
-              + Add New
-            </button>
+  </div>
+  </div>
+  </section>
 
-          </div>
-
-        </div>
-
-      </section>
 
       {/* Loading */}
       {loading ? (
@@ -142,6 +145,9 @@ export default function Galeria() {
 
       )}
 
+
     </Template>
+
+    
   )
 }
